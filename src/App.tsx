@@ -12,14 +12,14 @@ const App = () => {
           height={72}
           borderRadius={999}
           className="max-w-4xl"
-          displace={0.12}
-          distortionScale={-58}
+          displace={0.08}
+          distortionScale={-34}
           redOffset={0}
-          greenOffset={4}
-          blueOffset={8}
+          greenOffset={0}
+          blueOffset={0}
           brightness={58}
           opacity={0.9}
-          mixBlendMode="soft-light"
+          mixBlendMode="normal"
           backgroundOpacity={0.06}
           saturation={1.1}
         >

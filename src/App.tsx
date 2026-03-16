@@ -1,9 +1,12 @@
 import GlassSurface from './components/GlassSurface';
 
+const lorem =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus, augue eu fermentum posuere, tellus sem egestas magna, a feugiat nibh risus sed nibh. Cras varius, justo eu interdum sagittis, justo lectus suscipit turpis, et convallis lacus nulla a erat. Sed eget lectus vitae odio malesuada vehicula. Praesent rhoncus faucibus nibh, sit amet gravida ligula tincidunt in. Fusce sit amet sem id libero tincidunt aliquam. Donec id feugiat turpis, id dictum justo.';
+
 const App = () => {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <header className="mx-auto flex w-full max-w-6xl justify-center px-4 pt-6">
+      <header className="sticky top-0 z-20 mx-auto flex w-full max-w-6xl justify-center px-4 py-4 backdrop-blur-sm">
         <GlassSurface
           width="100%"
           height={72}
@@ -40,6 +43,16 @@ const App = () => {
             Developer Portfolio
           </p>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl space-y-8 px-6 pb-24 text-slate-200">
+        {Array.from({ length: 12 }).map((_, idx) => (
+          <article key={idx} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 leading-7 shadow-lg">
+            <h2 className="mb-3 text-2xl font-semibold text-white">Lorem Section {idx + 1}</h2>
+            <p>{lorem}</p>
+            <p className="mt-4">{lorem}</p>
+          </article>
+        ))}
       </section>
     </main>
   );

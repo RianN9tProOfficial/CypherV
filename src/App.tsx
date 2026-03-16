@@ -13,22 +13,7 @@ const App = () => {
         </div>
 
         <header className="sticky top-0 z-20 mx-auto flex w-full max-w-6xl justify-center px-4 py-4">
-          <GlassSurface
-            width="100%"
-            height={64}
-            borderRadius={40}
-            className="max-w-4xl"
-            displace={0.08}
-            distortionScale={-48}
-            redOffset={0}
-            greenOffset={2}
-            blueOffset={4}
-            brightness={58}
-            opacity={0.9}
-            mixBlendMode="normal"
-            backgroundOpacity={0.06}
-            saturation={1.1}
-          >
+          <GlassSurface width="100%" height={64} borderRadius={40} className="max-w-4xl">
             <nav className="flex w-full items-center justify-between px-6 text-sm md:text-base">
               <span className="font-semibold tracking-[0.2em]">RIAN.DEV</span>
               <ul className="flex items-center gap-6 text-slate-200">

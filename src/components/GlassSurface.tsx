@@ -60,20 +60,20 @@ const useDarkMode = () => {
 
 const GlassSurface: React.FC<GlassSurfaceProps> = ({
   children,
-  width = 200,
-  height = 80,
-  borderRadius = 20,
-  borderWidth = 0.07,
-  brightness = 56,
-  opacity = 0.9,
-  blur = 10,
-  displace = 0,
-  backgroundOpacity = 0.06,
-  saturation = 1.1,
-  distortionScale = -36,
+  width = '100%',
+  height = 64,
+  borderRadius = 40,
+  borderWidth = 0.035,
+  brightness = 58,
+  opacity = 0.92,
+  blur = 5,
+  displace = 1.2,
+  backgroundOpacity = 0.08,
+  saturation = 1.15,
+  distortionScale = -48,
   redOffset = 0,
-  greenOffset = 0,
-  blueOffset = 0,
+  greenOffset = 2,
+  blueOffset = 4,
   xChannel = 'R',
   yChannel = 'G',
   mixBlendMode = 'soft-light',
@@ -97,21 +97,15 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const isDarkMode = useDarkMode();
 
   const supportsSVGFilters = () => {
-    if (typeof window === 'undefined' || typeof document === 'undefined') {
-      return false;
-    }
+    if (typeof window === 'undefined' || typeof document === 'undefined') return false;
 
     const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
     const isFirefox = /Firefox/.test(navigator.userAgent);
-
-    if (isWebkit || isFirefox) {
-      return false;
-    }
+    if (isWebkit || isFirefox) return false;
 
     const div = document.createElement('div');
-    div.style.backdropFilter = `url(#${filterId})`;
-
-    return div.style.backdropFilter !== '';
+    div.style.filter = `url(#${filterId})`;
+    return div.style.filter !== '';
   };
 
   const supportsBackdropFilter = () => {
@@ -123,18 +117,18 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     const rect = containerRef.current?.getBoundingClientRect();
     const actualWidth = rect?.width || 400;
     const actualHeight = rect?.height || 200;
-    const edgeSize = Math.min(actualWidth, actualHeight) * (borderWidth * 0.5);
+    const edgeSize = Math.min(actualWidth, actualHeight) * (borderWidth * 0.2);
 
     const svgContent = `
       <svg viewBox="0 0 ${actualWidth} ${actualHeight}" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="${redGradId}" x1="100%" y1="0%" x2="0%" y2="0%">
             <stop offset="0%" stop-color="rgba(255,0,0,0)"/>
-            <stop offset="100%" stop-color="rgba(255,0,0,0.42)"/>
+            <stop offset="100%" stop-color="rgba(255,0,0,0.18)"/>
           </linearGradient>
           <linearGradient id="${blueGradId}" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="rgba(0,0,255,0)"/>
-            <stop offset="100%" stop-color="rgba(0,128,255,0.35)"/>
+            <stop offset="0%" stop-color="rgba(0,128,255,0)"/>
+            <stop offset="100%" stop-color="rgba(0,128,255,0.14)"/>
           </linearGradient>
         </defs>
         <rect x="0" y="0" width="${actualWidth}" height="${actualHeight}" fill="black"></rect>
@@ -197,7 +191,6 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     });
 
     resizeObserver.observe(containerRef.current);
-
     return () => resizeObserver.disconnect();
   }, []);
 
@@ -217,50 +210,38 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       return {
         ...baseStyles,
         background: isDarkMode
-          ? `hsl(0 0% 0% / ${backgroundOpacity})`
+          ? `hsl(0 0% 6% / ${backgroundOpacity})`
           : `hsl(0 0% 100% / ${backgroundOpacity})`,
-        backdropFilter: `url(#${filterId}) saturate(${saturation})`,
-        WebkitBackdropFilter: `url(#${filterId}) saturate(${saturation})`,
+        filter: `url(#${filterId})`,
+        backdropFilter: `blur(14px) saturate(${saturation})`,
+        WebkitBackdropFilter: `blur(14px) saturate(${saturation})`,
         boxShadow: isDarkMode
-          ? `0 0 2px 1px color-mix(in oklch, white, transparent 70%) inset,
-             0 0 8px 3px color-mix(in oklch, white, transparent 88%) inset,
-             0 10px 28px rgba(17, 17, 26, 0.25)`
-          : `0 0 2px 1px color-mix(in oklch, black, transparent 86%) inset,
-             0 0 10px 4px color-mix(in oklch, black, transparent 92%) inset,
-             0 10px 28px rgba(17, 17, 26, 0.16)`,
+          ? `0 0 0 1px rgba(255,255,255,0.14) inset,
+             0 1px 0 rgba(255,255,255,0.2) inset,
+             0 -1px 0 rgba(255,255,255,0.06) inset,
+             0 8px 18px rgba(0,0,0,0.24)`
+          : `0 0 0 1px rgba(255,255,255,0.3) inset,
+             0 1px 0 rgba(255,255,255,0.45) inset,
+             0 -1px 0 rgba(255,255,255,0.2) inset,
+             0 8px 18px rgba(0,0,0,0.12)`,
       };
     }
 
     if (isDarkMode) {
-      if (!backdropFilterSupported) {
-        return {
-          ...baseStyles,
-          background: 'rgba(0, 0, 0, 0.42)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-        };
-      }
       return {
         ...baseStyles,
         background: 'rgba(255, 255, 255, 0.08)',
-        backdropFilter: 'blur(12px) saturate(1.2)',
-        WebkitBackdropFilter: 'blur(12px) saturate(1.2)',
+        backdropFilter: backdropFilterSupported ? 'blur(12px) saturate(1.15)' : undefined,
+        WebkitBackdropFilter: backdropFilterSupported ? 'blur(12px) saturate(1.15)' : undefined,
         border: '1px solid rgba(255, 255, 255, 0.18)',
-      };
-    }
-
-    if (!backdropFilterSupported) {
-      return {
-        ...baseStyles,
-        background: 'rgba(255, 255, 255, 0.4)',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
       };
     }
 
     return {
       ...baseStyles,
       background: 'rgba(255, 255, 255, 0.24)',
-      backdropFilter: 'blur(12px) saturate(1.2)',
-      WebkitBackdropFilter: 'blur(12px) saturate(1.2)',
+      backdropFilter: backdropFilterSupported ? 'blur(12px) saturate(1.1)' : undefined,
+      WebkitBackdropFilter: backdropFilterSupported ? 'blur(12px) saturate(1.1)' : undefined,
       border: '1px solid rgba(255, 255, 255, 0.26)',
     };
   };
@@ -285,11 +266,54 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
         <defs>
           <filter id={filterId} colorInterpolationFilters="sRGB" x="0%" y="0%" width="100%" height="100%">
             <feImage ref={feImageRef} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
-            <feDisplacementMap ref={redChannelRef} in="SourceGraphic" in2="map" result="displaced" />
-            <feGaussianBlur ref={gaussianBlurRef} in="displaced" stdDeviation="0.35" />
+
+            <feDisplacementMap ref={redChannelRef} in="SourceGraphic" in2="map" result="dispRed" />
+            <feColorMatrix
+              in="dispRed"
+              type="matrix"
+              values="1 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 1 0"
+              result="red"
+            />
+
+            <feDisplacementMap ref={greenChannelRef} in="SourceGraphic" in2="map" result="dispGreen" />
+            <feColorMatrix
+              in="dispGreen"
+              type="matrix"
+              values="0 0 0 0 0
+                      0 1 0 0 0
+                      0 0 0 0 0
+                      0 0 0 1 0"
+              result="green"
+            />
+
+            <feDisplacementMap ref={blueChannelRef} in="SourceGraphic" in2="map" result="dispBlue" />
+            <feColorMatrix
+              in="dispBlue"
+              type="matrix"
+              values="0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 1 0 0
+                      0 0 0 1 0"
+              result="blue"
+            />
+
+            <feBlend in="red" in2="green" mode="screen" result="rg" />
+            <feBlend in="rg" in2="blue" mode="screen" result="output" />
+            <feGaussianBlur ref={gaussianBlurRef} in="output" stdDeviation="1.2" />
           </filter>
         </defs>
       </svg>
+
+      <div
+        className="pointer-events-none absolute inset-0 z-[1]"
+        style={{
+          background:
+            'radial-gradient(circle at 20% 10%, rgba(255,255,255,0.25), transparent 40%)',
+        }}
+      />
 
       <div className="relative z-10 flex h-full w-full items-center justify-center rounded-[inherit] px-3">
         {children}

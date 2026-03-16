@@ -15,14 +15,14 @@ const App = () => {
         <header className="sticky top-0 z-20 mx-auto flex w-full max-w-6xl justify-center px-4 py-4">
           <GlassSurface
             width="100%"
-            height={72}
-            borderRadius={999}
+            height={64}
+            borderRadius={40}
             className="max-w-4xl"
             displace={0.08}
-            distortionScale={-34}
+            distortionScale={-48}
             redOffset={0}
-            greenOffset={0}
-            blueOffset={0}
+            greenOffset={2}
+            blueOffset={4}
             brightness={58}
             opacity={0.9}
             mixBlendMode="normal"

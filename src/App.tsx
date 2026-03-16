@@ -12,16 +12,16 @@ const App = () => {
           height={72}
           borderRadius={999}
           className="max-w-4xl"
-          displace={0.5}
-          distortionScale={-180}
+          displace={0.12}
+          distortionScale={-58}
           redOffset={0}
-          greenOffset={10}
-          blueOffset={20}
-          brightness={50}
-          opacity={0.93}
-          mixBlendMode="screen"
-          backgroundOpacity={0.08}
-          saturation={1.2}
+          greenOffset={4}
+          blueOffset={8}
+          brightness={58}
+          opacity={0.9}
+          mixBlendMode="soft-light"
+          backgroundOpacity={0.06}
+          saturation={1.1}
         >
           <nav className="flex w-full items-center justify-between px-6 text-sm md:text-base">
             <span className="font-semibold tracking-[0.2em]">RIAN.DEV</span>

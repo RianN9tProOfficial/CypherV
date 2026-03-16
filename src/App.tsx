@@ -6,12 +6,12 @@ const lorem =
 const App = () => {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <header className="sticky top-0 z-20 mx-auto flex w-full max-w-6xl justify-center px-4 py-4 backdrop-blur-sm">
+      <header className="sticky top-0 z-20 mx-auto flex w-full max-w-6xl justify-center px-4 py-4">
         <GlassSurface
           width="100%"
           height={72}
           borderRadius={999}
-          className="max-w-4xl px-6"
+          className="max-w-4xl"
           displace={0.5}
           distortionScale={-180}
           redOffset={0}
@@ -23,7 +23,7 @@ const App = () => {
           backgroundOpacity={0.08}
           saturation={1.2}
         >
-          <nav className="flex w-full items-center justify-between text-sm md:text-base">
+          <nav className="flex w-full items-center justify-between px-6 text-sm md:text-base">
             <span className="font-semibold tracking-[0.2em]">RIAN.DEV</span>
             <ul className="flex items-center gap-6 text-slate-200">
               <li className="cursor-pointer hover:text-white">Home</li>

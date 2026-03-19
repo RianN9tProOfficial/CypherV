@@ -1,10 +1,10 @@
-import GlassSurface from './components/GlassSurface';
 import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
 import ScrollReveal from './components/ScrollReveal';
 import TextType from './components/TextType';
 import BorderGlow from './components/BorderGlow';
 import CountUp from './components/CountUp';
+import GlareHover from './components/GlareHover';
 
 const featureCards = [
   {
@@ -48,42 +48,27 @@ const App = () => {
           />
         </div>
 
-        <header className="fixed left-0 right-0 top-3 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-8 py-2">
-          <GlassSurface
-            width="100%"
-            height={64}
-            borderRadius={9999}
-            className="mx-auto max-w-5xl"
-            distortionScale={0}
-            redOffset={0}
-            greenOffset={0}
-            blueOffset={0}
-            mixBlendMode="normal"
-            borderWidth={0.03}
-            backgroundOpacity={0.14}
-            saturation={1}
-          >
-            <nav className="flex w-full items-center justify-between px-6 text-sm font-medium md:text-base">
-              <span className="tracking-[0.16em]">RIAN.DEV</span>
-              <ul className="flex items-center gap-6 text-slate-200">
-                <li>
-                  <button type="button" className="nav-item" onClick={scrollToHero}>
-                    Home
-                  </button>
-                </li>
-                <li>
-                  <button type="button" className="nav-item">
-                    Projects
-                  </button>
-                </li>
-                <li>
-                  <button type="button" className="nav-item">
-                    Contact
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          </GlassSurface>
+        <header className="sticky top-0 z-30 w-full px-6 py-3 backdrop-blur-sm">
+          <nav className="mx-auto flex w-full items-center justify-between text-sm font-medium md:text-base">
+            <span className="tracking-[0.16em]">RIAN.DEV</span>
+            <ul className="flex items-center gap-6 text-slate-200">
+              <li>
+                <button type="button" className="nav-item" onClick={scrollToHero}>
+                  Home
+                </button>
+              </li>
+              <li>
+                <button type="button" className="nav-item">
+                  Projects
+                </button>
+              </li>
+              <li>
+                <button type="button" className="nav-item">
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </nav>
         </header>
 
         <div className="relative z-10 flex min-h-[calc(100vh-96px)] items-center justify-center px-6 pt-28 text-center">
@@ -128,14 +113,20 @@ const App = () => {
               cursorBlinkDuration={0.5}
             />
             <div className="mt-8 flex justify-center">
-              <GlassSurface width={190} height={56} borderRadius={9999} className="px-1">
-                <button
-                  type="button"
-                  className="h-full w-full rounded-full text-base font-normal tracking-wide text-white transition hover:text-white/90"
-                >
+              <GlareHover
+                width="190px"
+                height="56px"
+                borderRadius="9999px"
+                background="linear-gradient(135deg, #7c3aed, #a855f7)"
+                borderColor="#a855f7"
+                glareColor="#ffffff"
+                glareOpacity={0.28}
+                className="shadow-[0_10px_24px_rgba(124,58,237,0.45)] transition-transform duration-300 hover:scale-[1.02]"
+              >
+                <button type="button" className="h-full w-full rounded-full text-base font-normal tracking-wide text-white">
                   Invite Bot
                 </button>
-              </GlassSurface>
+              </GlareHover>
             </div>
           </div>
         </div>

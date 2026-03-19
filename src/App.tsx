@@ -7,22 +7,22 @@ import BorderGlow from './components/BorderGlow';
 
 const featureCards = [
   {
-    title: '🛡️ Moderation',
+    title: 'Moderation',
     description:
       'Smart moderation tools that keep your server safe and under control — without constant manual effort.',
   },
   {
-    title: '⚙️ Automation',
+    title: 'Automation',
     description:
       'Automate repetitive tasks and workflows so your server runs smoothly in the background.',
   },
   {
-    title: '🧰 Utility',
+    title: 'Utility',
     description:
       'A collection of essential tools designed to make everyday server management easier.',
   },
   {
-    title: '⚡ Performance',
+    title: 'Performance',
     description:
       'Fast, reliable, and built to handle everything without slowing your server down.',
   },

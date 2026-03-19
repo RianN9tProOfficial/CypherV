@@ -1,9 +1,7 @@
 import GlassSurface from './components/GlassSurface';
 import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
-
-const lorem =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus, augue eu fermentum posuere, tellus sem egestas magna, a feugiat nibh risus sed nibh. Cras varius, justo eu interdum sagittis, justo lectus suscipit turpis, et convallis lacus nulla a erat. Sed eget lectus vitae odio malesuada vehicula. Praesent rhoncus faucibus nibh, sit amet gravida ligula tincidunt in. Fusce sit amet sem id libero tincidunt aliquam. Donec id feugiat turpis, id dictum justo.';
+import ScrollReveal from './components/ScrollReveal';
 
 const App = () => {
   return (
@@ -56,17 +54,10 @@ const App = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl space-y-8 px-6 pb-24 pt-8 text-slate-200">
-        {Array.from({ length: 12 }).map((_, idx) => (
-          <article
-            key={idx}
-            className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 leading-7 shadow-lg"
-          >
-            <h2 className="mb-3 text-2xl font-semibold text-white">Lorem Section {idx + 1}</h2>
-            <p>{lorem}</p>
-            <p className="mt-4">{lorem}</p>
-          </article>
-        ))}
+      <section className="mx-auto max-w-5xl px-6 pb-24 pt-8 text-slate-100">
+        <ScrollReveal baseOpacity={0.1} enableBlur baseRotation={3} blurStrength={4}>
+          {'CypherV is built to quietly power your server, handling moderation, automation, and everything in between. No clutter, no unnecessary noise — just clean, reliable control. It works in the background, so you can focus on your community. Simple where it should be, powerful where it matters. No! A man dies when he is forgotten!'}
+        </ScrollReveal>
       </section>
     </main>
   );

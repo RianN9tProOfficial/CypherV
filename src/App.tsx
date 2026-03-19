@@ -98,6 +98,16 @@ const App = () => {
               variableSpeedMax={120}
               cursorBlinkDuration={0.5}
             />
+            <div className="mt-8 flex justify-center">
+              <GlassSurface width={190} height={56} borderRadius={9999} className="px-1">
+                <button
+                  type="button"
+                  className="h-full w-full rounded-full text-base font-normal tracking-wide text-white transition hover:text-white/90"
+                >
+                  Invite Bot
+                </button>
+              </GlassSurface>
+            </div>
           </div>
         </div>
       </section>

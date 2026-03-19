@@ -132,9 +132,11 @@ const App = () => {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-28 pt-10 text-center">
-        <p className="text-lg font-normal text-slate-100">
-          Watching <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-normal text-white" /> servers right now
-        </p>
+        <h2 className="text-3xl font-normal leading-tight text-slate-100 md:text-5xl">
+          Watching{' '}
+          <CountUp from={0} to={3842} separator="," direction="up" duration={1.2} className="font-normal text-white" /> members and moderating{' '}
+          <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-normal text-white" /> servers right now
+        </h2>
       </section>
     </main>
   );

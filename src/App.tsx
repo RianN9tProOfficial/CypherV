@@ -33,11 +33,11 @@ const App = () => {
         </header>
 
         <div className="relative z-10 flex min-h-[calc(100vh-96px)] items-center justify-center px-6 pt-28 text-center">
-          <div className="mx-auto max-w-[700px]">
-            <h1 className="text-4xl font-semibold tracking-[-0.01em] text-white md:text-6xl">
+          <div className="mx-auto max-w-2xl">
+            <h1 className="text-4xl font-semibold leading-[1.15] tracking-[-0.01em] text-white md:text-6xl">
               Hey there, I&apos;m{' '}
               <GradientText
-                className="inline-flex text-4xl font-semibold tracking-[-0.01em] md:text-6xl"
+                className="inline-flex text-4xl font-semibold leading-[1.15] tracking-[-0.01em] md:text-6xl"
                 colors={['#5227FF', '#FF9FFC', '#B19EEF']}
                 animationSpeed={8}
                 direction="diagonal"
@@ -46,7 +46,7 @@ const App = () => {
               </GradientText>
             </h1>
             <TextType
-              className="mt-4 text-lg font-medium leading-[1.65] tracking-normal text-slate-200"
+              className="mx-auto mt-4 block max-w-xl text-lg font-medium leading-relaxed tracking-normal text-slate-200"
               text={[
                 'Meet CypherV',
                 'Your all-in-one Discord bot',

@@ -4,6 +4,7 @@ import GradientText from './components/GradientText';
 import ScrollReveal from './components/ScrollReveal';
 import TextType from './components/TextType';
 import BorderGlow from './components/BorderGlow';
+import CountUp from './components/CountUp';
 
 const featureCards = [
   {
@@ -126,6 +127,12 @@ const App = () => {
             <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
           </BorderGlow>
         ))}
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-28 pt-10 text-center">
+        <p className="text-lg font-normal text-slate-100">
+          Watching <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-normal text-white" /> servers right now
+        </p>
       </section>
     </main>
   );

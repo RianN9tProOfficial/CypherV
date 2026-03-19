@@ -3,6 +3,30 @@ import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
 import ScrollReveal from './components/ScrollReveal';
 import TextType from './components/TextType';
+import BorderGlow from './components/BorderGlow';
+
+const featureCards = [
+  {
+    title: '🛡️ Moderation',
+    description:
+      'Smart moderation tools that keep your server safe and under control — without constant manual effort.',
+  },
+  {
+    title: '⚙️ Automation',
+    description:
+      'Automate repetitive tasks and workflows so your server runs smoothly in the background.',
+  },
+  {
+    title: '🧰 Utility',
+    description:
+      'A collection of essential tools designed to make everyday server management easier.',
+  },
+  {
+    title: '⚡ Performance',
+    description:
+      'Fast, reliable, and built to handle everything without slowing your server down.',
+  },
+];
 
 const App = () => {
   return (
@@ -77,7 +101,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[700px] px-6 pb-24 pt-8 text-slate-100">
+      <section className="mx-auto max-w-[700px] px-6 pb-8 pt-8 text-slate-100">
         <ScrollReveal
           baseOpacity={0.1}
           enableBlur
@@ -87,6 +111,22 @@ const App = () => {
         >
           {'CypherV is built to quietly power your server, handling moderation, automation, and everything in between.'}
         </ScrollReveal>
+      </section>
+
+      <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-6 pb-24 pt-8 md:grid-cols-2">
+        {featureCards.map((card) => (
+          <BorderGlow
+            key={card.title}
+            className="min-h-[180px] p-6"
+            borderRadius={24}
+            backgroundColor="#05060c"
+            glowColor="270 95 78"
+            colors={['#7c3aed', '#ec4899', '#38bdf8']}
+          >
+            <h3 className="text-xl font-semibold text-white">{card.title}</h3>
+            <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
+          </BorderGlow>
+        ))}
       </section>
     </main>
   );

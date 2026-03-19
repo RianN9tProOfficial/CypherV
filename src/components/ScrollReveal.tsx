@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useMemo, ReactNode, RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GradientText from './GradientText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ interface ScrollRevealProps {
   textClassName?: string;
   rotationEnd?: string;
   wordAnimationEnd?: string;
+  gradientWords?: string[];
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -28,6 +30,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   textClassName = '',
   rotationEnd = 'bottom bottom',
   wordAnimationEnd = 'bottom bottom',
+  gradientWords = [] as string[],
 }) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
 
@@ -35,13 +38,28 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     const text = typeof children === 'string' ? children : '';
     return text.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word;
+
+      const normalizedWord = word.replace(/[^\w]/g, '');
+      const shouldRenderGradient = gradientWords.includes(normalizedWord);
+
       return (
         <span className="word inline-block" key={index}>
-          {word}
+          {shouldRenderGradient ? (
+            <GradientText
+              className="inline-block font-normal leading-[1.5]"
+              colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+              animationSpeed={8}
+              direction="diagonal"
+            >
+              {word}
+            </GradientText>
+          ) : (
+            word
+          )}
         </span>
       );
     });
-  }, [children]);
+  }, [children, gradientWords]);
 
   useEffect(() => {
     const el = containerRef.current;

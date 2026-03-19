@@ -59,14 +59,15 @@ const App = () => {
 
         <div className="relative z-10 flex min-h-[calc(100vh-96px)] items-center justify-center px-6 pt-28 text-center">
           <div className="mx-auto max-w-2xl">
-            <h1 className="text-4xl font-semibold leading-[1.15] tracking-[-0.01em] text-white md:text-6xl">
+            <h1 className="text-4xl font-normal leading-[1.15] tracking-[-0.01em] text-white md:text-6xl">
+              <span className="mr-2 text-white">Meet</span>
               <GradientText
-                className="inline-flex text-4xl font-semibold leading-[1.15] tracking-[-0.01em] md:text-6xl"
+                className="inline-flex text-4xl font-normal leading-[1.15] tracking-[-0.01em] md:text-6xl"
                 colors={['#5227FF', '#FF9FFC', '#B19EEF']}
                 animationSpeed={8}
                 direction="diagonal"
               >
-                Meet CypherV
+                Cypher V
               </GradientText>
             </h1>
             <TextType
@@ -107,7 +108,8 @@ const App = () => {
           enableBlur
           baseRotation={3}
           blurStrength={4}
-          textClassName="font-medium leading-[1.65] tracking-normal"
+          textClassName="font-normal leading-[1.65] tracking-normal"
+          gradientWords={['CypherV']}
         >
           {'CypherV is built to quietly power your server, handling moderation, automation, and everything in between.'}
         </ScrollReveal>

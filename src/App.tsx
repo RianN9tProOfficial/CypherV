@@ -20,7 +20,7 @@ const App = () => {
           />
         </div>
 
-        <header className="relative z-20 mx-auto mt-6 flex w-full max-w-5xl items-center justify-between px-8 py-4">
+        <header className="fixed left-0 right-0 top-6 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-8 py-4">
           <GlassSurface width="100%" height={64} borderRadius={9999} className="mx-auto max-w-5xl">
             <nav className="flex w-full items-center justify-between px-6 text-sm md:text-base">
               <span className="font-semibold tracking-[0.2em]">RIAN.DEV</span>
@@ -33,16 +33,22 @@ const App = () => {
           </GlassSurface>
         </header>
 
-        <div className="relative z-10 flex min-h-[calc(100vh-96px)] items-center justify-center px-6 text-center">
+        <div className="relative z-10 flex min-h-[calc(100vh-96px)] items-center justify-center px-6 pt-28 text-center">
           <div>
-            <GradientText
-              className="text-5xl font-bold tracking-wide md:text-7xl"
-              colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-              animationSpeed={8}
-              direction="diagonal"
+            <h1
+              className="text-4xl font-bold tracking-wide text-white md:text-6xl"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}
             >
-              <span style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>Rian.dev</span>
-            </GradientText>
+              Hey there, I&apos;m{' '}
+              <GradientText
+                className="inline-flex text-4xl font-bold tracking-wide md:text-6xl"
+                colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+                animationSpeed={8}
+                direction="diagonal"
+              >
+                Cypher V
+              </GradientText>
+            </h1>
             <p className="mt-4 text-lg tracking-[0.25em] text-slate-200 drop-shadow-[0_0_10px_rgba(255,255,255,0.45)]">
               Developer Portfolio
             </p>

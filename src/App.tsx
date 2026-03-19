@@ -2,6 +2,7 @@ import GlassSurface from './components/GlassSurface';
 import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
 import ScrollReveal from './components/ScrollReveal';
+import TextType from './components/TextType';
 
 const App = () => {
   return (
@@ -44,9 +45,34 @@ const App = () => {
                 Cypher V
               </GradientText>
             </h1>
-            <p className="mt-4 text-lg font-medium leading-[1.65] tracking-normal text-slate-200">
-              Developer Portfolio
-            </p>
+            <TextType
+              className="mt-4 text-lg font-medium leading-[1.65] tracking-normal text-slate-200"
+              text={[
+                'Meet CypherV',
+                'Your all-in-one Discord bot',
+                'Moderation made simple',
+                'Automation without clutter',
+                'Everything, in one place',
+                'Control without complexity',
+                'Running silently in the background',
+                'Keeping things in order',
+                'Less noise, more control',
+                'Built for your server',
+                'Designed to stay out of your way',
+                'Simple on the surface, powerful underneath',
+                'Engineered for reliability',
+                'Made to handle everything',
+              ]}
+              typingSpeed={50}
+              pauseDuration={1500}
+              showCursor
+              cursorCharacter="_"
+              deletingSpeed={50}
+              variableSpeedEnabled={false}
+              variableSpeedMin={60}
+              variableSpeedMax={120}
+              cursorBlinkDuration={0.5}
+            />
           </div>
         </div>
       </section>
@@ -59,7 +85,7 @@ const App = () => {
           blurStrength={4}
           textClassName="font-medium leading-[1.65] tracking-normal"
         >
-          {'CypherV is built to quietly power your server, handling moderation, automation, and everything in between. No clutter, no unnecessary noise — just clean, reliable control. It works in the background, so you can focus on your community. Simple where it should be, powerful where it matters. No! A man dies when he is forgotten!'}
+          {'CypherV is built to quietly power your server, handling moderation, automation, and everything in between.'}
         </ScrollReveal>
       </section>
     </main>

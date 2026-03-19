@@ -13,7 +13,6 @@ function SmoothScrollApp() {
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
-      smoothTouch: false,
       wheelMultiplier: 1,
       lerp: 0.08,
     });

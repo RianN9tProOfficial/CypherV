@@ -18,7 +18,7 @@ const App = () => {
           />
         </div>
 
-        <header className="fixed left-0 right-0 top-6 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-8 py-4">
+        <header className="fixed left-0 right-0 top-3 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-8 py-2">
           <GlassSurface width="100%" height={64} borderRadius={9999} className="mx-auto max-w-5xl">
             <nav className="flex w-full items-center justify-between px-6 text-sm font-medium md:text-base">
               <span className="tracking-[0.16em]">RIAN.DEV</span>

@@ -30,9 +30,13 @@ const featureCards = [
 ];
 
 const App = () => {
+  const scrollToHero = () => {
+    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="relative min-h-screen overflow-hidden">
+      <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <DarkVeil
             hueShift={0}
@@ -45,13 +49,38 @@ const App = () => {
         </div>
 
         <header className="fixed left-0 right-0 top-3 z-30 mx-auto flex w-full max-w-5xl items-center justify-between px-8 py-2">
-          <GlassSurface width="100%" height={64} borderRadius={9999} className="mx-auto max-w-5xl">
+          <GlassSurface
+            width="100%"
+            height={64}
+            borderRadius={9999}
+            className="mx-auto max-w-5xl"
+            distortionScale={0}
+            redOffset={0}
+            greenOffset={0}
+            blueOffset={0}
+            mixBlendMode="normal"
+            borderWidth={0.03}
+            backgroundOpacity={0.14}
+            saturation={1}
+          >
             <nav className="flex w-full items-center justify-between px-6 text-sm font-medium md:text-base">
               <span className="tracking-[0.16em]">RIAN.DEV</span>
               <ul className="flex items-center gap-6 text-slate-200">
-                <li className="cursor-pointer hover:text-white">Home</li>
-                <li className="cursor-pointer hover:text-white">Projects</li>
-                <li className="cursor-pointer hover:text-white">Contact</li>
+                <li>
+                  <button type="button" className="nav-item" onClick={scrollToHero}>
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="nav-item">
+                    Projects
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="nav-item">
+                    Contact
+                  </button>
+                </li>
               </ul>
             </nav>
           </GlassSurface>

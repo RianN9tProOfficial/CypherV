@@ -8,6 +8,7 @@ import GlareHover from './components/GlareHover';
 import ShapeGrid from './components/ShapeGrid';
 import GradualBlur from './components/GradualBlur';
 import TargetCursor from './components/TargetCursor';
+import Cubes from './components/Cubes';
 
 const featureCards = [
   {
@@ -194,8 +195,21 @@ const App = () => {
       </section>
 
       <section className="snappy-container mx-auto w-full max-w-5xl px-6 pb-24">
-        <div className="rounded-3xl bg-[#05010E] p-8 md:p-10">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="relative overflow-hidden rounded-3xl bg-[#05010E] p-8 md:p-10">
+          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-70">
+            <Cubes
+              gridSize={8}
+              maxAngle={45}
+              radius={3}
+              borderStyle="2px dashed #B19EEF"
+              faceColor="#1a1a2e"
+              rippleColor="#ff6b6b"
+              rippleSpeed={1.5}
+              autoAnimate
+              rippleOnClick
+            />
+          </div>
+          <div className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-3">
             {['MAKE', 'YOUR', 'SERVER'].map((label) => (
               <button
                 key={label}
@@ -208,7 +222,7 @@ const App = () => {
           </div>
           <button
             type="button"
-            className="cursor-target mt-5 w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"
+            className="cursor-target relative z-10 mt-5 w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"
           >
             COMPLETE
           </button>

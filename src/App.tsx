@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} />
+      <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} zIndex={1} />
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <DarkVeil
@@ -123,7 +123,11 @@ const App = () => {
                 background="linear-gradient(135deg, #7c3aed, #a855f7)"
                 borderColor="#a855f7"
                 glareColor="#ffffff"
-                glareOpacity={0.28}
+                glareOpacity={0.3}
+                glareAngle={-30}
+                glareSize={300}
+                transitionDuration={800}
+                playOnce={false}
                 className="shadow-[0_10px_24px_rgba(124,58,237,0.45)] transition-transform duration-300 hover:scale-[1.02]"
               >
                 <button type="button" className="h-full w-full rounded-full text-base font-normal tracking-wide text-white">

@@ -48,10 +48,10 @@ const App = () => {
           />
         </div>
 
-        <header className="sticky top-0 z-30 w-full px-6 py-3 backdrop-blur-sm">
-          <nav className="mx-auto flex w-full items-center justify-between text-sm font-medium md:text-base">
+        <header className="sticky top-0 z-30 w-full px-6 py-4 backdrop-blur-sm">
+          <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
             <span className="tracking-[0.16em]">RIAN.DEV</span>
-            <ul className="flex items-center gap-6 text-slate-200">
+            <ul className="flex items-center gap-8 text-slate-200">
               <li>
                 <button type="button" className="nav-item" onClick={scrollToHero}>
                   Home

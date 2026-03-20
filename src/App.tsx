@@ -11,6 +11,7 @@ import TargetCursor from './components/TargetCursor';
 import Cubes from './components/Cubes';
 import LetterGlitch from './components/LetterGlitch';
 import SpotlightCard from './components/SpotlightCard';
+import TextPressure from './components/TextPressure';
 
 const featureCards = [
   {
@@ -98,7 +99,7 @@ const App = () => {
             glitchColors={['#2a0d4d', '#5b21b6', '#a855f7']}
             glitchSpeed={50}
             centerVignette={true}
-            outerVignette={false}
+            outerVignette={true}
             smooth={true}
           />
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
@@ -116,11 +117,27 @@ const App = () => {
         <section className="mx-auto w-full max-w-6xl px-6 pb-24">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {privacyCards.map((card) => (
-              <SpotlightCard key={card.title} spotlightColor="rgba(168, 85, 247, 0.2)">
+              <SpotlightCard key={card.title} className="border-purple-400/50 bg-purple-900/30" spotlightColor="rgba(192, 132, 252, 0.42)">
                 <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
+                <p className="mt-3 text-base leading-relaxed text-purple-100">{card.description}</p>
               </SpotlightCard>
             ))}
+          </div>
+        </section>
+        <section className="mx-auto w-full max-w-6xl px-6 pb-24">
+          <div className="relative h-[300px]">
+            <TextPressure
+              text="Rian.exe"
+              flex
+              alpha={false}
+              stroke={false}
+              width
+              weight
+              italic
+              textColor="#ffffff"
+              strokeColor="#5227FF"
+              minFontSize={36}
+            />
           </div>
         </section>
       </main>

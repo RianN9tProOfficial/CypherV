@@ -40,7 +40,7 @@ const App = () => {
   return (
     <main className="min-h-screen bg-black text-white">
       <TargetCursor targetSelector=".snappy-container .cursor-target" spinDuration={2} hideDefaultCursor={false} parallaxOn hoverDuration={0.2} />
-      <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} zIndex={1} />
+      <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} zIndex={0} />
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <DarkVeil
@@ -53,7 +53,7 @@ const App = () => {
           />
         </div>
 
-        <header className="sticky top-0 z-30 w-full bg-black/80 px-6 py-4">
+        <header className="sticky top-0 z-[2000] w-full bg-black px-6 py-4">
           <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
             <span className="tracking-[0.16em]">RIAN.DEV</span>
             <ul className="flex items-center gap-8 text-slate-200">
@@ -215,8 +215,8 @@ const App = () => {
         </div>
       </section>
 
-      <footer className="mx-auto w-full max-w-6xl px-6 pb-16 pt-6 text-slate-300">
-        <div className="rounded-2xl border border-white/10 bg-black/50 px-6 py-5">
+      <footer className="w-full pb-16 pt-6 text-slate-300">
+        <div className="w-full border-y border-white/10 bg-black/70 px-6 py-5">
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
             <a href="#hero" className="hover:text-white">
               Home

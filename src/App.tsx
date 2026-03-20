@@ -54,7 +54,7 @@ const App = () => {
           />
         </div>
 
-        <header className="sticky top-0 z-[2000] w-full bg-black px-6 py-4">
+        <header className="sticky top-0 z-[2000] w-full bg-transparent px-6 py-4">
           <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
             <span className="tracking-[0.16em]">RIAN.DEV</span>
             <ul className="flex items-center gap-8 text-slate-200">

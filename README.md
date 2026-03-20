@@ -18,3 +18,8 @@ CypherV is a Vite + React + TypeScript single-page interface with animated UI co
 npm install
 npm run dev
 ```
+
+## Routes
+
+- `/` — main landing page
+- `/privacy` — privacy hero page with `LetterGlitch` background

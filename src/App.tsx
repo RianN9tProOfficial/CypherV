@@ -12,6 +12,7 @@ import Cubes from './components/Cubes';
 import LetterGlitch from './components/LetterGlitch';
 import SpotlightCard from './components/SpotlightCard';
 import TextPressure from './components/TextPressure';
+import DecryptedText from './components/DecryptedText';
 
 const featureCards = [
   {
@@ -129,6 +130,18 @@ const App = () => {
           </div>
         </section>
         <section className="mx-auto w-full max-w-6xl px-6 pb-24">
+          <div className="mb-8 text-center">
+            <DecryptedText
+              text="Your Data always safe"
+              animateOn="view"
+              speed={40}
+              sequential
+              revealDirection="start"
+              className="font-['Inter'] text-3xl font-normal text-white md:text-4xl"
+              encryptedClassName="font-['Inter'] text-3xl font-normal text-purple-300/70 md:text-4xl"
+              parentClassName="inline-block"
+            />
+          </div>
           <div className="relative h-[300px]">
             <TextPressure
               text="Rian.exe"
@@ -144,6 +157,25 @@ const App = () => {
             />
           </div>
         </section>
+        <footer className="w-full pb-16 pt-6 text-slate-300">
+          <div className="w-full border-y border-white/10 bg-black/70 px-6 py-5">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
+              <a href="/" className="hover:text-white" onClick={(e) => { e.preventDefault(); goHome(); }}>
+                Home
+              </a>
+              <a href="/privacy" className="hover:text-white">
+                Privacy
+              </a>
+              <a href="#" className="hover:text-white">
+                About
+              </a>
+              <a href="#" className="hover:text-white">
+                Discord
+              </a>
+            </div>
+            <p className="mt-4 text-center text-xs tracking-[0.16em] text-slate-400">© VANGUARD SYSTEMS</p>
+          </div>
+        </footer>
       </main>
     );
   }

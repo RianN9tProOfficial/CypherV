@@ -147,7 +147,7 @@ const App = () => {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-24 pt-8">
-        <div className="relative overflow-hidden rounded-3xl border border-[#271E37] bg-[#090512]/80 px-6 py-10 md:px-10">
+        <div className="relative overflow-hidden rounded-3xl border border-[#4b2a75] bg-[#090512]/80 px-6 py-10 shadow-[0_0_35px_rgba(147,51,234,0.45)] md:px-10">
           <div className="pointer-events-none absolute inset-0">
             <ShapeGrid
               speed={0.24}
@@ -163,11 +163,11 @@ const App = () => {
             {featureCards.map((card) => (
               <BorderGlow
                 key={card.title}
-                className="min-h-[180px] p-6"
+                className="min-h-[180px] bg-white/5 p-6 backdrop-blur-xl"
                 borderRadius={24}
-                backgroundColor="#05060c"
-                glowColor="270 95 78"
-                colors={['#7c3aed', '#ec4899', '#38bdf8']}
+                backgroundColor="rgba(5,6,12,0.35)"
+                glowColor="284 100 78"
+                colors={['#7c3aed', '#a855f7', '#ec4899']}
               >
                 <h3 className="text-xl font-semibold text-white">{card.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
@@ -178,10 +178,10 @@ const App = () => {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-28 pt-10 text-center">
-        <h2 className="text-3xl font-normal leading-tight text-slate-100 md:text-5xl">
+        <h2 className="text-3xl font-bold leading-tight text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.85)] md:text-5xl">
           Watching{' '}
-          <CountUp from={0} to={3842} separator="," direction="up" duration={1.2} className="font-normal text-white" /> members and moderating{' '}
-          <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-normal text-white" /> servers right now
+          <CountUp from={0} to={3842} separator="," direction="up" duration={1.2} className="font-bold text-white" /> members and moderating{' '}
+          <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-bold text-white" /> servers right now
         </h2>
       </section>
     </main>

@@ -51,8 +51,16 @@ const App = () => {
         <section className="relative min-h-screen">
           <LetterGlitch glitchSpeed={50} centerVignette={true} outerVignette={false} smooth={true} />
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
-            <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">Your Privacy Matters The Most</h1>
+            <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">
+              <span className="block">Your Privacy Matters The</span>
+              <span className="mt-2 block">Most</span>
+            </h1>
           </div>
+        </section>
+        <section className="w-full bg-black px-6 pb-24 pt-12">
+          <p className="mx-auto max-w-5xl font-['Inter'] text-lg font-normal leading-relaxed text-slate-200">
+            As concerns of privacy we can&apos;t see your messages or control the bots remotely. It works only if prompted or triggered with certain actions if using moderation and anti-nuke setup.
+          </p>
         </section>
       </main>
     );

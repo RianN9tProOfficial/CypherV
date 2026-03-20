@@ -5,6 +5,7 @@ import TextType from './components/TextType';
 import BorderGlow from './components/BorderGlow';
 import CountUp from './components/CountUp';
 import GlareHover from './components/GlareHover';
+import ShapeGrid from './components/ShapeGrid';
 
 const featureCards = [
   {
@@ -145,20 +146,35 @@ const App = () => {
         </ScrollReveal>
       </section>
 
-      <section className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-8 px-6 pb-24 pt-8 md:grid-cols-2">
-        {featureCards.map((card) => (
-          <BorderGlow
-            key={card.title}
-            className="min-h-[180px] p-6"
-            borderRadius={24}
-            backgroundColor="#05060c"
-            glowColor="270 95 78"
-            colors={['#7c3aed', '#ec4899', '#38bdf8']}
-          >
-            <h3 className="text-xl font-semibold text-white">{card.title}</h3>
-            <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
-          </BorderGlow>
-        ))}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-24 pt-8">
+        <div className="relative overflow-hidden rounded-3xl border border-[#271E37] bg-[#090512]/80 px-6 py-10 md:px-10">
+          <div className="pointer-events-none absolute inset-0">
+            <ShapeGrid
+              speed={0.24}
+              squareSize={40}
+              direction="right"
+              borderColor="#271E37"
+              hoverFillColor="#222222"
+              shape="square"
+              hoverTrailAmount={0}
+            />
+          </div>
+          <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+            {featureCards.map((card) => (
+              <BorderGlow
+                key={card.title}
+                className="min-h-[180px] p-6"
+                borderRadius={24}
+                backgroundColor="#05060c"
+                glowColor="270 95 78"
+                colors={['#7c3aed', '#ec4899', '#38bdf8']}
+              >
+                <h3 className="text-xl font-semibold text-white">{card.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
+              </BorderGlow>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-28 pt-10 text-center">

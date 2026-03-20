@@ -94,7 +94,7 @@ const App = () => {
             </ul>
           </nav>
         </header>
-        <section className="relative min-h-screen">
+        <section className="relative h-[calc(100vh-88px)]">
           <LetterGlitch
             glitchColors={['#2a0d4d', '#5b21b6', '#a855f7']}
             glitchSpeed={50}
@@ -117,9 +117,13 @@ const App = () => {
         <section className="mx-auto w-full max-w-6xl px-6 pb-24">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {privacyCards.map((card) => (
-              <SpotlightCard key={card.title} className="border-purple-400/50 bg-purple-900/30" spotlightColor="rgba(192, 132, 252, 0.42)">
+              <SpotlightCard
+                key={card.title}
+                className="border-white/20 bg-black/80 transition-colors duration-300 hover:border-purple-500/70 hover:bg-purple-950/70"
+                spotlightColor="rgba(88, 28, 135, 0.45)"
+              >
                 <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-purple-100">{card.description}</p>
+                <p className="mt-3 text-base leading-relaxed text-slate-200">{card.description}</p>
               </SpotlightCard>
             ))}
           </div>

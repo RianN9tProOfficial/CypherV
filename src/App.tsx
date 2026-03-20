@@ -49,7 +49,7 @@ const App = () => {
     return (
       <main className="min-h-screen bg-black text-white">
         <section className="relative min-h-screen">
-          <LetterGlitch glitchColors={['#2b4539', '#61dca3', '#61b3dc']} glitchSpeed={50} centerVignette={false} outerVignette smooth />
+          <LetterGlitch glitchSpeed={50} centerVignette={true} outerVignette={false} smooth={true} />
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
             <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">Your Privacy Matters The Most</h1>
           </div>

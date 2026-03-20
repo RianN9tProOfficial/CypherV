@@ -8,7 +8,6 @@ import GlareHover from './components/GlareHover';
 import ShapeGrid from './components/ShapeGrid';
 import GradualBlur from './components/GradualBlur';
 import TargetCursor from './components/TargetCursor';
-import CurvedLoop from './components/CurvedLoop';
 
 const featureCards = [
   {
@@ -54,7 +53,7 @@ const App = () => {
           />
         </div>
 
-        <header className="sticky top-0 z-30 w-full px-6 py-4 backdrop-blur-sm">
+        <header className="sticky top-0 z-30 w-full bg-black/80 px-6 py-4">
           <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
             <span className="tracking-[0.16em]">RIAN.DEV</span>
             <ul className="flex items-center gap-8 text-slate-200">
@@ -65,7 +64,7 @@ const App = () => {
               </li>
               <li>
                 <button type="button" className="nav-item cursor-target">
-                  Projects
+                  Privacy
                 </button>
               </li>
               <li>
@@ -216,9 +215,25 @@ const App = () => {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 pb-24">
-        <CurvedLoop marqueeText="Made by rian ✦" speed={2} curveAmount={250} direction="right" interactive className="fill-[#B19EEF]" />
-      </section>
+      <footer className="mx-auto w-full max-w-6xl px-6 pb-16 pt-6 text-slate-300">
+        <div className="rounded-2xl border border-white/10 bg-black/50 px-6 py-5">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
+            <a href="#hero" className="hover:text-white">
+              Home
+            </a>
+            <a href="#" className="hover:text-white">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-white">
+              About
+            </a>
+            <a href="#" className="hover:text-white">
+              Discord
+            </a>
+          </div>
+          <p className="mt-4 text-center text-xs tracking-[0.16em] text-slate-400">© VANGUARD SYSTEMS</p>
+        </div>
+      </footer>
     </main>
   );
 };

@@ -6,6 +6,7 @@ import BorderGlow from './components/BorderGlow';
 import CountUp from './components/CountUp';
 import GlareHover from './components/GlareHover';
 import ShapeGrid from './components/ShapeGrid';
+import GradualBlur from './components/GradualBlur';
 
 const featureCards = [
   {
@@ -159,6 +160,17 @@ const App = () => {
               hoverTrailAmount={0}
             />
           </div>
+          <GradualBlur target="parent" position="top" height="7rem" strength={2} divCount={5} curve="bezier" exponential opacity={1} />
+          <GradualBlur
+            target="parent"
+            position="bottom"
+            height="7rem"
+            strength={2}
+            divCount={5}
+            curve="bezier"
+            exponential
+            opacity={1}
+          />
           <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
             {featureCards.map((card) => (
               <BorderGlow

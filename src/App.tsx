@@ -147,7 +147,7 @@ const App = () => {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-24 pt-8">
-        <div className="relative overflow-hidden rounded-3xl border border-[#4b2a75] bg-[#090512]/80 px-6 py-10 shadow-[0_0_35px_rgba(147,51,234,0.45)] md:px-10">
+        <div className="relative overflow-hidden rounded-3xl border border-[#6d28d9] bg-[#090512]/80 px-6 py-10 shadow-[0_0_65px_rgba(147,51,234,0.72),0_0_120px_rgba(168,85,247,0.38)] md:px-10">
           <div className="pointer-events-none absolute inset-0">
             <ShapeGrid
               speed={0.24}
@@ -178,7 +178,7 @@ const App = () => {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-28 pt-10 text-center">
-        <h2 className="text-3xl font-bold leading-tight text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.85)] md:text-5xl">
+        <h2 className="text-3xl font-bold leading-tight text-white [text-shadow:0_0_14px_rgba(255,255,255,0.55),0_0_36px_rgba(255,255,255,0.35),0_0_64px_rgba(255,255,255,0.2)] md:text-5xl">
           Watching{' '}
           <CountUp from={0} to={3842} separator="," direction="up" duration={1.2} className="font-bold text-white" /> members and moderating{' '}
           <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-bold text-white" /> servers right now

@@ -7,6 +7,7 @@ import CountUp from './components/CountUp';
 import GlareHover from './components/GlareHover';
 import ShapeGrid from './components/ShapeGrid';
 import GradualBlur from './components/GradualBlur';
+import TargetCursor from './components/TargetCursor';
 
 const featureCards = [
   {
@@ -38,6 +39,7 @@ const App = () => {
 
   return (
     <main className="min-h-screen bg-black text-white">
+      <TargetCursor spinDuration={2} hideDefaultCursor parallaxOn hoverDuration={0.2} />
       <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} zIndex={1} />
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
@@ -56,17 +58,17 @@ const App = () => {
             <span className="tracking-[0.16em]">RIAN.DEV</span>
             <ul className="flex items-center gap-8 text-slate-200">
               <li>
-                <button type="button" className="nav-item" onClick={scrollToHero}>
+                <button type="button" className="nav-item cursor-target" onClick={scrollToHero}>
                   Home
                 </button>
               </li>
               <li>
-                <button type="button" className="nav-item">
+                <button type="button" className="nav-item cursor-target">
                   Projects
                 </button>
               </li>
               <li>
-                <button type="button" className="nav-item">
+                <button type="button" className="nav-item cursor-target">
                   Contact
                 </button>
               </li>
@@ -130,8 +132,8 @@ const App = () => {
                 playOnce={false}
                 className="shadow-[0_10px_24px_rgba(124,58,237,0.45)] transition-transform duration-300 hover:scale-[1.02]"
               >
-                <button type="button" className="h-full w-full rounded-full text-base font-normal tracking-wide text-white">
-                  Invite Bot
+                <button type="button" className="cursor-target h-full w-full rounded-full text-base font-normal tracking-wide text-white">
+                  Make your server
                 </button>
               </GlareHover>
             </div>
@@ -189,6 +191,14 @@ const App = () => {
           <CountUp from={0} to={3842} separator="," direction="up" duration={1.2} className="font-bold text-white" /> members and moderating{' '}
           <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-bold text-white" /> servers right now
         </h2>
+        <div className="pt-10">
+          <button
+            type="button"
+            className="cursor-target rounded-2xl border border-purple-300/40 bg-purple-700/30 px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-md"
+          >
+            Complete
+          </button>
+        </div>
       </section>
     </main>
   );

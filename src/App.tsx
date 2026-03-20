@@ -39,16 +39,6 @@ const App = () => {
   return (
     <main className="min-h-screen bg-black text-white">
       <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} />
-      <GradualBlur
-        target="page"
-        position="bottom"
-        height="7rem"
-        strength={2.6}
-        divCount={7}
-        curve="bezier"
-        exponential
-        opacity={1}
-      />
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <DarkVeil

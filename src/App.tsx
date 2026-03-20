@@ -9,6 +9,7 @@ import ShapeGrid from './components/ShapeGrid';
 import GradualBlur from './components/GradualBlur';
 import TargetCursor from './components/TargetCursor';
 import Cubes from './components/Cubes';
+import LetterGlitch from './components/LetterGlitch';
 
 const featureCards = [
   {
@@ -34,9 +35,28 @@ const featureCards = [
 ];
 
 const App = () => {
+  const isPrivacyPage = typeof window !== 'undefined' && window.location.pathname === '/privacy';
+
+  const goToPrivacy = () => {
+    window.location.pathname = '/privacy';
+  };
+
   const scrollToHero = () => {
     document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  if (isPrivacyPage) {
+    return (
+      <main className="min-h-screen bg-black text-white">
+        <section className="relative min-h-screen">
+          <LetterGlitch glitchColors={['#2b4539', '#61dca3', '#61b3dc']} glitchSpeed={50} centerVignette={false} outerVignette smooth />
+          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
+            <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">Your Privacy Matters The Most</h1>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -64,7 +84,7 @@ const App = () => {
                 </button>
               </li>
               <li>
-                <button type="button" className="nav-item cursor-target">
+                <button type="button" className="nav-item cursor-target" onClick={goToPrivacy}>
                   Privacy
                 </button>
               </li>
@@ -235,7 +255,7 @@ const App = () => {
             <a href="#hero" className="hover:text-white">
               Home
             </a>
-            <a href="#" className="hover:text-white">
+            <a href="/privacy" className="hover:text-white" onClick={(e) => { e.preventDefault(); goToPrivacy(); }}>
               Privacy
             </a>
             <a href="#" className="hover:text-white">

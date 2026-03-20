@@ -195,12 +195,17 @@ const App = () => {
 
       <section className="snappy-container mx-auto w-full max-w-5xl px-6 pb-24">
         <div className="rounded-3xl bg-[#05010E] p-8 md:p-10">
-          <button
-            type="button"
-            className="cursor-target w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"
-          >
-            MAKE YOUR SERVER
-          </button>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {['MAKE', 'YOUR', 'SERVER'].map((label) => (
+              <button
+                key={label}
+                type="button"
+                className="cursor-target w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
           <button
             type="button"
             className="cursor-target mt-5 w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"

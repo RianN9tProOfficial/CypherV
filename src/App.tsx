@@ -58,7 +58,7 @@ const App = () => {
           </div>
         </section>
         <section className="w-full bg-black px-6 pb-24 pt-12">
-          <p className="mx-auto max-w-5xl font-['Inter'] text-lg font-normal leading-relaxed text-slate-200">
+          <p className="mx-auto max-w-5xl text-center font-['Inter'] text-3xl font-bold leading-relaxed text-white md:text-4xl">
             As concerns of privacy we can&apos;t see your messages or control the bots remotely. It works only if prompted or triggered with certain actions if using moderation and anti-nuke setup.
           </p>
         </section>

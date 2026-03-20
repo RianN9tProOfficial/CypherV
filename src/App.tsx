@@ -38,6 +38,17 @@ const App = () => {
 
   return (
     <main className="min-h-screen bg-black text-white">
+      <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} />
+      <GradualBlur
+        target="page"
+        position="bottom"
+        height="7rem"
+        strength={2.6}
+        divCount={7}
+        curve="bezier"
+        exponential
+        opacity={1}
+      />
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <DarkVeil
@@ -160,17 +171,6 @@ const App = () => {
               hoverTrailAmount={0}
             />
           </div>
-          <GradualBlur target="parent" position="top" height="7rem" strength={2} divCount={5} curve="bezier" exponential opacity={1} />
-          <GradualBlur
-            target="parent"
-            position="bottom"
-            height="7rem"
-            strength={2}
-            divCount={5}
-            curve="bezier"
-            exponential
-            opacity={1}
-          />
           <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2">
             {featureCards.map((card) => (
               <BorderGlow
@@ -190,7 +190,7 @@ const App = () => {
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-28 pt-10 text-center">
-        <h2 className="text-3xl font-bold leading-tight text-white [text-shadow:0_0_14px_rgba(255,255,255,0.55),0_0_36px_rgba(255,255,255,0.35),0_0_64px_rgba(255,255,255,0.2)] md:text-5xl">
+        <h2 className="text-3xl font-bold leading-tight text-white [text-shadow:0_0_20px_rgba(255,255,255,0.8)] md:text-5xl">
           Watching{' '}
           <CountUp from={0} to={3842} separator="," direction="up" duration={1.2} className="font-bold text-white" /> members and moderating{' '}
           <CountUp from={0} to={100} separator="," direction="up" duration={1} className="font-bold text-white" /> servers right now

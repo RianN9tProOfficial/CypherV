@@ -194,16 +194,16 @@ const App = () => {
         </h2>
       </section>
 
-      <section className="snappy-container w-full pb-24">
-        <div className="relative w-full overflow-hidden bg-black px-6 py-10 md:px-10">
+      <section className="snappy-container w-full pb-24 pt-4">
+        <div className="relative mx-auto w-[96%] overflow-hidden rounded-3xl border border-white/35 bg-black/85 px-6 py-10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12),0_0_30px_rgba(255,255,255,0.08)] backdrop-blur-xl md:px-10">
           <div className="absolute inset-0 z-0 flex items-center justify-center opacity-70">
             <Cubes
               gridSize={8}
               maxAngle={45}
               radius={3}
-              borderStyle="2px dashed #B19EEF"
-              faceColor="#1a1a2e"
-              rippleColor="#ff6b6b"
+              borderStyle="1.5px solid rgba(255,255,255,0.5)"
+              faceColor="#0b0b0b"
+              rippleColor="#ffffff"
               rippleSpeed={1.5}
               autoAnimate
               rippleOnClick
@@ -214,7 +214,7 @@ const App = () => {
               <button
                 key={label}
                 type="button"
-                className="cursor-target w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"
+                className="cursor-target w-full rounded-2xl border border-white/60 bg-black/70 py-5 text-4xl font-bold tracking-wide text-white backdrop-blur-md md:text-5xl"
               >
                 {label}
               </button>
@@ -222,7 +222,7 @@ const App = () => {
           </div>
           <button
             type="button"
-            className="cursor-target relative z-10 mt-5 w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-5 text-4xl font-bold tracking-wide text-[#B19EEF] md:text-5xl"
+            className="cursor-target relative z-10 mt-5 w-full rounded-2xl border border-white/60 bg-black/70 py-5 text-4xl font-bold tracking-wide text-white backdrop-blur-md md:text-5xl"
           >
             COMPLETE
           </button>

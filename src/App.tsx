@@ -10,6 +10,7 @@ import GradualBlur from './components/GradualBlur';
 import TargetCursor from './components/TargetCursor';
 import Cubes from './components/Cubes';
 import LetterGlitch from './components/LetterGlitch';
+import SpotlightCard from './components/SpotlightCard';
 
 const featureCards = [
   {
@@ -34,11 +35,33 @@ const featureCards = [
   },
 ];
 
+const privacyCards = [
+  {
+    title: '24/7',
+    description: "Our bot stays online 24/7 so you don't need to worry about moderation.",
+  },
+  {
+    title: 'Ticket System',
+    description: 'All of the messages in tickets are not stored anywhere in the bot.',
+  },
+  {
+    title: 'Privacy',
+    description: 'There is no database for storing messages, ids or tokens.',
+  },
+  {
+    title: 'Security',
+    description: 'No hidden owners or bot control near the developers of bot.',
+  },
+];
+
 const App = () => {
   const isPrivacyPage = typeof window !== 'undefined' && window.location.pathname === '/privacy';
 
   const goToPrivacy = () => {
     window.location.pathname = '/privacy';
+  };
+  const goHome = () => {
+    window.location.pathname = '/';
   };
 
   const scrollToHero = () => {
@@ -48,8 +71,36 @@ const App = () => {
   if (isPrivacyPage) {
     return (
       <main className="min-h-screen bg-black text-white">
+        <header className="sticky top-0 z-[2000] w-full bg-transparent px-6 py-4">
+          <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
+            <span className="tracking-[0.16em]">RIAN.DEV</span>
+            <ul className="flex items-center gap-8 text-slate-200">
+              <li>
+                <button type="button" className="nav-item" onClick={goHome}>
+                  Home
+                </button>
+              </li>
+              <li>
+                <button type="button" className="nav-item">
+                  Privacy
+                </button>
+              </li>
+              <li>
+                <button type="button" className="nav-item">
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
         <section className="relative min-h-screen">
-          <LetterGlitch glitchSpeed={50} centerVignette={true} outerVignette={false} smooth={true} />
+          <LetterGlitch
+            glitchColors={['#2a0d4d', '#5b21b6', '#a855f7']}
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+          />
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
             <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">
               <span className="block">Your Privacy Matters The</span>
@@ -61,6 +112,16 @@ const App = () => {
           <p className="mx-auto max-w-5xl text-center font-['Inter'] text-3xl font-bold leading-relaxed text-white md:text-4xl">
             As concerns of privacy we can&apos;t see your messages or control the bots remotely. It works only if prompted or triggered with certain actions if using moderation and anti-nuke setup.
           </p>
+        </section>
+        <section className="mx-auto w-full max-w-6xl px-6 pb-24">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {privacyCards.map((card) => (
+              <SpotlightCard key={card.title} spotlightColor="rgba(168, 85, 247, 0.2)">
+                <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-slate-300">{card.description}</p>
+              </SpotlightCard>
+            ))}
+          </div>
         </section>
       </main>
     );

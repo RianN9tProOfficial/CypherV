@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <TargetCursor spinDuration={2} hideDefaultCursor parallaxOn hoverDuration={0.2} />
+      <TargetCursor targetSelector=".snappy-container .cursor-target" spinDuration={2} hideDefaultCursor={false} parallaxOn hoverDuration={0.2} />
       <GradualBlur target="page" position="top" height="7rem" strength={2.6} divCount={7} curve="bezier" exponential opacity={1} zIndex={1} />
       <section id="hero" className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
@@ -132,8 +132,8 @@ const App = () => {
                 playOnce={false}
                 className="shadow-[0_10px_24px_rgba(124,58,237,0.45)] transition-transform duration-300 hover:scale-[1.02]"
               >
-                <button type="button" className="cursor-target h-full w-full rounded-full text-base font-normal tracking-wide text-white">
-                  Make your server
+                <button type="button" className="h-full w-full rounded-full text-base font-normal tracking-wide text-white">
+                  Invite Now
                 </button>
               </GlareHover>
             </div>
@@ -197,6 +197,28 @@ const App = () => {
             className="cursor-target rounded-2xl border border-purple-300/40 bg-purple-700/30 px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-md"
           >
             Complete
+          </button>
+        </div>
+      </section>
+
+      <section className="snappy-container mx-auto w-full max-w-3xl px-6 pb-24">
+        <div className="rounded-3xl bg-[#05010E] p-5">
+          <div className="grid grid-cols-3 gap-4">
+            {['THIS', 'FEELS', 'QUITE'].map((label) => (
+              <button
+                key={label}
+                type="button"
+                className="cursor-target rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-3 text-4xl font-bold tracking-wide text-[#B19EEF]"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="cursor-target mt-4 w-full rounded-2xl border border-dashed border-[#9f8cff] bg-[#09021A] py-3 text-4xl font-bold tracking-wide text-[#B19EEF]"
+          >
+            SNAPPY!
           </button>
         </div>
       </section>

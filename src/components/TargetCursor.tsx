@@ -59,7 +59,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       currentLeaveHandler = null;
     };
 
-    gsap.set(cursor, { xPercent: -50, yPercent: -50, x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    gsap.set(cursor, { xPercent: -50, yPercent: -50, x: window.innerWidth / 2, y: window.innerHeight / 2, autoAlpha: 0 });
 
     spinTl.current = gsap.timeline({ repeat: -1 }).to(cursor, { rotation: '+=360', duration: spinDuration, ease: 'none' });
 
@@ -91,6 +91,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       if (!target || !cursorRef.current || !cornersRef.current || activeTarget === target) return;
       if (activeTarget) cleanupTarget(activeTarget);
       activeTarget = target;
+      gsap.to(cursorRef.current, { autoAlpha: 1, duration: 0.12, ease: 'power2.out' });
       const corners = Array.from(cornersRef.current);
       corners.forEach(corner => gsap.killTweensOf(corner));
       spinTl.current?.pause();
@@ -139,6 +140,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
           });
         }
         spinTl.current?.resume();
+        gsap.to(cursorRef.current, { autoAlpha: 0, duration: 0.12, ease: 'power2.out' });
         cleanupTarget(target);
       };
 

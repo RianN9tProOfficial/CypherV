@@ -8,6 +8,7 @@ import GlareHover from './components/GlareHover';
 import ShapeGrid from './components/ShapeGrid';
 import GradualBlur from './components/GradualBlur';
 import TargetCursor from './components/TargetCursor';
+import CurvedLoop from './components/CurvedLoop';
 
 const featureCards = [
   {
@@ -213,6 +214,10 @@ const App = () => {
             COMPLETE
           </button>
         </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-24">
+        <CurvedLoop marqueeText="Made by rian ✦" speed={2} curveAmount={250} direction="right" interactive className="fill-[#B19EEF]" />
       </section>
     </main>
   );

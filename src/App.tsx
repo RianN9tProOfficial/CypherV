@@ -194,8 +194,8 @@ const App = () => {
         </h2>
       </section>
 
-      <section className="snappy-container mx-auto w-full max-w-5xl px-6 pb-24">
-        <div className="relative overflow-hidden rounded-3xl bg-[#05010E] p-8 md:p-10">
+      <section className="snappy-container w-full pb-24">
+        <div className="relative w-full overflow-hidden bg-black px-6 py-10 md:px-10">
           <div className="absolute inset-0 z-0 flex items-center justify-center opacity-70">
             <Cubes
               gridSize={8}

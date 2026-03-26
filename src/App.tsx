@@ -73,29 +73,7 @@ const App = () => {
   if (isPrivacyPage) {
     return (
       <main className="min-h-screen bg-black text-white">
-        <header className="sticky top-0 z-[2000] w-full bg-transparent px-6 py-4">
-          <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
-            <span className="tracking-[0.16em]">RIAN.DEV</span>
-            <ul className="flex items-center gap-8 text-slate-200">
-              <li>
-                <button type="button" className="nav-item" onClick={goHome}>
-                  Home
-                </button>
-              </li>
-              <li>
-                <button type="button" className="nav-item">
-                  Privacy
-                </button>
-              </li>
-              <li>
-                <button type="button" className="nav-item">
-                  Contact
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <section className="relative h-[calc(100vh-88px)]">
+        <section className="relative min-h-screen overflow-hidden">
           <LetterGlitch
             glitchColors={['#2a0d4d', '#5b21b6', '#a855f7']}
             glitchSpeed={50}
@@ -103,6 +81,28 @@ const App = () => {
             outerVignette={true}
             smooth={true}
           />
+          <header className="absolute top-0 z-[2000] w-full bg-transparent px-6 py-4">
+            <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
+              <span className="tracking-[0.16em]">RIAN.DEV</span>
+              <ul className="flex items-center gap-8 text-slate-200">
+                <li>
+                  <button type="button" className="nav-item" onClick={goHome}>
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="nav-item">
+                    Privacy
+                  </button>
+                </li>
+                <li>
+                  <button type="button" className="nav-item">
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </header>
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
             <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">
               <span className="block">Your Privacy Matters The</span>
@@ -157,9 +157,9 @@ const App = () => {
             />
           </div>
         </section>
-        <footer className="w-full pb-16 pt-6 text-slate-300">
-          <div className="w-full border-y border-white/10 bg-black/70 px-6 py-5">
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
+        <footer className="border-t border-white/10 bg-black px-6 py-8 text-slate-300">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               <a href="/" className="hover:text-white" onClick={(e) => { e.preventDefault(); goHome(); }}>
                 Home
               </a>

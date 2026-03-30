@@ -150,19 +150,6 @@ const App = () => {
               <p className="mx-auto mt-5 max-w-2xl font-['Inter'] text-base font-normal text-slate-200 md:text-lg">
                 We process only what is needed to keep your community secure and running smoothly.
               </p>
-              <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {trustBadges.map((badge, index) => (
-                  <div
-                    key={badge.label}
-                    className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-black/45 px-3 py-2 text-xs text-slate-100 opacity-0 shadow-[0_0_22px_rgba(168,85,247,0.16)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.04]"
-                    style={{ animation: `fadeInUp 500ms ease-out ${index * 90}ms forwards` }}
-                  >
-                    <span className="text-purple-300">{badge.icon}</span>
-                    <span className="font-['Inter'] font-medium tracking-wide">{badge.label}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mx-auto mt-8 h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-purple-400/70 to-transparent shadow-[0_0_18px_rgba(168,85,247,0.45)]" />
             </div>
           </div>
         </section>
@@ -198,6 +185,20 @@ const App = () => {
               parentClassName="inline-block"
             />
           </div>
+          <div className="mx-auto mb-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+            {trustBadges.map((badge, index) => (
+              <button
+                key={badge.label}
+                type="button"
+                className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-black/45 px-3 py-2 text-xs text-slate-100 opacity-0 shadow-[0_0_22px_rgba(168,85,247,0.16)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.04]"
+                style={{ animation: `fadeInUp 500ms ease-out ${index * 90}ms forwards` }}
+              >
+                <span className="text-purple-300">{badge.icon}</span>
+                <span className="font-['Inter'] font-medium tracking-wide">{badge.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="mx-auto mb-8 h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-purple-400/70 to-transparent shadow-[0_0_18px_rgba(168,85,247,0.45)]" />
           <div className="relative h-[300px]">
             <TextPressure
               text="Rian.exe"

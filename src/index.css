@@ -70,6 +70,10 @@ h6 {
   background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc);
 }
 
+.nav-item-active::after {
+  transform: scaleX(1);
+}
+
 .nav-item:hover {
   color: #e9d5ff;
 }
@@ -87,4 +91,19 @@ h6 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    opacity: 0.92;
+    text-shadow: 0 0 6px rgba(196, 181, 253, 0.35), 0 0 14px rgba(168, 85, 247, 0.2);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(216, 180, 254, 0.65), 0 0 20px rgba(168, 85, 247, 0.45);
+  }
+}
+
+.logo-glow {
+  animation: logoPulse 2.4s ease-in-out infinite;
 }

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import DarkVeil from './components/DarkVeil';
 import GradientText from './components/GradientText';
 import ScrollReveal from './components/ScrollReveal';
@@ -96,6 +97,15 @@ const trustBadges = [
 
 const App = () => {
   const isPrivacyPage = typeof window !== 'undefined' && window.location.pathname === '/privacy';
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const goToPrivacy = () => {
     window.location.pathname = '/privacy';
@@ -108,6 +118,10 @@ const App = () => {
     document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const navContainerClass = `sticky top-0 z-[2000] w-full px-4 py-3 transition-all duration-300 ease-in-out md:px-6 md:py-4 ${isScrolled ? 'bg-black/80 shadow-[0_8px_28px_rgba(0,0,0,0.45)] backdrop-blur-xl' : 'bg-transparent'}`;
+  const navLinkClass = (active: boolean) =>
+    `nav-item inline-flex items-center rounded-lg px-3 py-2 transition-all duration-300 ease-in-out hover:-translate-y-0.5 ${active ? 'text-purple-200 nav-item-active' : 'text-slate-200 hover:text-purple-100'}`;
+
   if (isPrivacyPage) {
     return (
       <main className="min-h-screen bg-black text-white">
@@ -119,23 +133,31 @@ const App = () => {
             outerVignette={true}
             smooth={true}
           />
-          <header className="absolute top-0 z-[2000] w-full bg-transparent px-6 py-4">
-            <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
-              <span className="tracking-[0.16em]">RIAN.DEV</span>
-              <ul className="flex items-center gap-8 text-slate-200">
+          <header className={navContainerClass}>
+            <nav className="mx-auto flex w-full max-w-6xl items-center justify-between font-['Inter'] text-sm font-medium md:text-base">
+              <span className="logo-glow tracking-[0.16em] text-slate-100">RIAN.DEV</span>
+              <ul className="flex items-center gap-1 sm:gap-2">
                 <li>
-                  <button type="button" className="nav-item" onClick={goHome}>
+                  <button type="button" className={navLinkClass(currentPath === '/')} onClick={goHome}>
                     Home
                   </button>
                 </li>
                 <li>
-                  <button type="button" className="nav-item">
+                  <button type="button" className={navLinkClass(currentPath === '/privacy')}>
                     Privacy
                   </button>
                 </li>
                 <li>
-                  <button type="button" className="nav-item">
+                  <button type="button" className={navLinkClass(false)}>
                     Contact
+                  </button>
+                </li>
+                <li className="ml-2">
+                  <button
+                    type="button"
+                    className="rounded-full border border-purple-400/60 bg-purple-500/20 px-4 py-2 text-xs font-semibold tracking-wide text-purple-100 shadow-[0_0_18px_rgba(168,85,247,0.55)] transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-purple-500/35 hover:shadow-[0_0_24px_rgba(168,85,247,0.75)] md:text-sm"
+                  >
+                    Invite Bot
                   </button>
                 </li>
               </ul>
@@ -253,23 +275,31 @@ const App = () => {
           />
         </div>
 
-        <header className="sticky top-0 z-[2000] w-full bg-transparent px-6 py-4">
-          <nav className="mx-auto flex w-full items-center justify-between font-['Inter'] text-base font-medium md:text-lg">
-            <span className="tracking-[0.16em]">RIAN.DEV</span>
-            <ul className="flex items-center gap-8 text-slate-200">
+        <header className={navContainerClass}>
+          <nav className="mx-auto flex w-full max-w-6xl items-center justify-between font-['Inter'] text-sm font-medium md:text-base">
+            <span className="logo-glow tracking-[0.16em] text-slate-100">RIAN.DEV</span>
+            <ul className="flex items-center gap-1 sm:gap-2">
               <li>
-                <button type="button" className="nav-item cursor-target" onClick={scrollToHero}>
+                <button type="button" className={`${navLinkClass(currentPath === '/')} cursor-target`} onClick={scrollToHero}>
                   Home
                 </button>
               </li>
               <li>
-                <button type="button" className="nav-item cursor-target" onClick={goToPrivacy}>
+                <button type="button" className={`${navLinkClass(currentPath === '/privacy')} cursor-target`} onClick={goToPrivacy}>
                   Privacy
                 </button>
               </li>
               <li>
-                <button type="button" className="nav-item cursor-target">
+                <button type="button" className={`${navLinkClass(false)} cursor-target`}>
                   Contact
+                </button>
+              </li>
+              <li className="ml-2">
+                <button
+                  type="button"
+                  className="cursor-target rounded-full border border-purple-400/60 bg-purple-500/20 px-4 py-2 text-xs font-semibold tracking-wide text-purple-100 shadow-[0_0_18px_rgba(168,85,247,0.55)] transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-purple-500/35 hover:shadow-[0_0_24px_rgba(168,85,247,0.75)] md:text-sm"
+                >
+                  Invite Bot
                 </button>
               </li>
             </ul>

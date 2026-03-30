@@ -56,6 +56,44 @@ const privacyCards = [
   },
 ];
 
+const trustBadges = [
+  {
+    label: 'Encrypted',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+        <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Protected',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+        <path d="M12 3 19 6v5c0 4.8-3 8.3-7 10-4-1.7-7-5.2-7-10V6l7-3Z" stroke="currentColor" strokeWidth="1.7" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Private',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+        <path d="M3 12s3-5 9-5 9 5 9 5-3 5-9 5-9-5-9-5Z" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="12" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.7" />
+        <path d="m5 19 14-14" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Realtime',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden="true">
+        <path d="M13 2 6 13h5l-1 9 8-12h-5l0-8Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+];
+
 const App = () => {
   const isPrivacyPage = typeof window !== 'undefined' && window.location.pathname === '/privacy';
 
@@ -104,10 +142,28 @@ const App = () => {
             </nav>
           </header>
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6 text-center">
-            <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">
-              <span className="block">Your Privacy Matters The</span>
-              <span className="mt-2 block">Most</span>
-            </h1>
+            <div className="mx-auto max-w-4xl">
+              <h1 className="font-['Inter'] text-5xl font-medium text-white md:text-7xl">
+                <span className="block">Your Privacy Matters The</span>
+                <span className="mt-2 block">Most</span>
+              </h1>
+              <p className="mx-auto mt-5 max-w-2xl font-['Inter'] text-base font-normal text-slate-200 md:text-lg">
+                We process only what is needed to keep your community secure and running smoothly.
+              </p>
+              <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {trustBadges.map((badge, index) => (
+                  <div
+                    key={badge.label}
+                    className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-black/45 px-3 py-2 text-xs text-slate-100 opacity-0 shadow-[0_0_22px_rgba(168,85,247,0.16)] backdrop-blur-md transition-transform duration-300 hover:scale-[1.04]"
+                    style={{ animation: `fadeInUp 500ms ease-out ${index * 90}ms forwards` }}
+                  >
+                    <span className="text-purple-300">{badge.icon}</span>
+                    <span className="font-['Inter'] font-medium tracking-wide">{badge.label}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mx-auto mt-8 h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-purple-400/70 to-transparent shadow-[0_0_18px_rgba(168,85,247,0.45)]" />
+            </div>
           </div>
         </section>
         <section className="w-full bg-black px-6 pb-24 pt-12">
